@@ -31,10 +31,21 @@
       //   $computer.style.background = `url(${IMG_URL}) 165px 0`; // 보
       const rspX = {
         scissors: "0",
-        rock: "-215",
-        paper: "165",
+        rock: "-215px",
+        paper: "165px",
       };
-      
+      let computerChoice = "scissors";
+      setInterval(() => {
+        if (computerChoice === "scissors") {
+          computerChoice = "rock"; // 데이터를 먼저 바꾸고 밑에 화면을 바꾸기
+        } else if (computerChoice === "rock") {
+          computerChoice = "paper";
+        } else if (computerChoice === "paper") {
+          computerChoice = "scissors";
+        }
+        $computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;
+        $computer.style.backgroundSize = "auto 200px";
+      }, 50);
     </script>
   </body>
 </html>
